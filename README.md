@@ -1,4 +1,4 @@
-!(https://sps-lab.org/post/2024_windows_bash/featured.png)
+![bash](https://sps-lab.org/post/2024_windows_bash/featured.png)
 
 # My Scripts
 
