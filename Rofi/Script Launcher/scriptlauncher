@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+function get_scripts() {
+    ls ~/scripts/bin/rofi | grep -v "^scriptluancher$"
+}
+
+function main() {
+    local scripts=$(get_scripts)
+    local script=$(echo "${scripts}" | rofi -dmenu -p "Scripts: ")
+
+    if [[ -n "$script" ]]; then
+        local script_path=~/scripts/bin/rofi/"$script"
+        if [[ -x "$script_path" ]]; then
+            "$script_path" &
+        else
+            rofi -e "Script is not executable: $script_path"
+        fi
+    fi
+}
+
+main
+

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+options=("Logout\nShutdown\nRestart\nCancel")
+
+selected=$(echo -e "${options[@]}" | rofi -dmenu -p "Choose an option:")
+
+case "$selected" in
+    "Logout")
+	hyprctl dispatch exit
+        ;;
+    "Shutdown")
+        shutdown now
+        ;;
+    "Restart")
+        reboot
+        ;;
+    "Cancel")
+        exit 0
+        ;;
+    *)
+        echo "Invalid selection"
+        ;;
+esac
+
